@@ -55,22 +55,21 @@
                     </div>
 
                     <div class="input-div w-[100%] mx-auto grid place-content-center bg-white rounded p-[2rem] border-dashed border-2 border-sky-500" draggable="true">
-                        <label class="grid justify-center" for="input-file">
-                   
+                        <label class="grid justify-center" for="input-file" class="dragBox">
                                 <input  
+                                    class="draging"
                                     id="input-file" 
                                     type="file" 
                                     multiple 
-                                    accept="image/jpeg, image/png, image/jpg" 
-                                    onChange="dragNdrop(event)"
-                                    ondragover="drag()"
-                                    ondrop="drop()" 
+                                    accept="image/jpeg, image/png, image/jpg"  
                                     hidden
+                                    onChange="dragAnddrop(event)"
+                                    ondragover="drag()"
+                                    ondrop="drop()"
                                 >
                                 <span class="flex justify-center"><i class="fa-solid fa-cloud-arrow-up"></i></span>
                                 <p class="text-sm text-center"><strong>Click to upload</strong> or drap and drop</p>
                                 <p class="text-sm text-center">SYG, PNG,JPG or GIF (MAX 800 X 400PX) </p>
-
                         </label> 
                     </div>
 

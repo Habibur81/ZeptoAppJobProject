@@ -109,6 +109,27 @@ function uploadImage(){
 };
 
 
+function dragAnddrop(event){
+  var filename = URL.createObjectURL(event.target.files[0]);
+  var view = document.getElementById("img-view");
+  var viewImg = document.createElement("img");
+  viewImg.setAttribute("src",filename); 
+	view.innerHTML = "";
+	view.appendChild(viewImg);
+
+}
+
+function drag(){
+  document.getElementById('input-file').parentNode.className = "draging dragBox";
+}
+
+
+function drop(){
+  document.getElementById('input-file').parentNode.className = 'dragBox';
+}
+
+
+
 ///Image Download
 const downTag = document.getElementById("downtag");
 downTag.addEventListener('click', (event) => {
