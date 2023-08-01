@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Zepto job project</title>
+
+        <!-- tailwind css link cnd-->
+        <script src="https://cdn.tailwindcss.com"></script>
+         <!-- font awesome link cnd-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+        
+    </head>
+    <body class="font-sans">
+        <div class="container mx-auto bg-gray-200 h-screen grid grid-cols-2 grid justify-items-center">
+
+            <div class="w-11/12 border border-emerald-700 rounded h-5/6 mt-2 relative">
+                <div class=" w-[100%] grid justify-items-center absolute top-[-10px]">
+                    <div class=" w-[93%] bg-white rounded h-8 text-center">
+                        <span><i class="fa fa-file-text-o" aria-hidden="true"></i></span>
+                        <span>Components</span>
+                    </div>
+                </div>
+
+                <!-----Heading section----->
+                <div id="hdev" class="w-[90%] rounded mx-auto p-5 my-3 relative shadow-inner mt-10" hidden>
+
+                    <div class="w-[95%] flex justify-between absolute top-[-9px]">
+                        <p class="text-sm bg-white rounded">Heading</p>
+                        <p onclick="hideHead()" class="text-sm rounded cursor-pointer text-red-600">X</p>
+                    </div>
+                    
+                    <input type="text" name="" id="hvalue" class="w-[100%] rounded p-1" oninput="myHeading()">
+
+                    <div class="w-[100%] flex justify-between">
+                        <div>
+                            <button onclick="textAlign('left')" class="bg-white rounded text-sm p-1 mt-2 hover:bg-sky-200 hover:text-white"><i class="fa fa-file-text-o" aria-hidden="true"></i>Left</button>
+                            <button onclick="textAlign('center')" class="bg-white rounded text-sm p-1 mt-2 hover:bg-sky-200 hover:text-white"><i class="fa fa-file-text-o" aria-hidden="true"></i>Center</button>
+                            <button onclick="textAlign('right')" class="bg-white rounded text-sm p-1 mt-2 hover:bg-sky-200 hover:text-white"><i class="fa fa-file-text-o" aria-hidden="true"></i>Right</button>
+                        </div>
+                        <div>
+                            <button onclick="colorChange('blue')" class="bg-white rounded text-sm p-1 mt-2 hover:bg-blue-900 hover:text-white"><i class="fa fa-file-text-o" aria-hidden="true"></i>Blue</button>
+                            <button onclick="colorChange('black')" class="bg-white rounded text-sm p-1 mt-2 hover:bg-black hover:text-white"><i class="fa fa-file-text-o" aria-hidden="true"></i>Black</button>
+                            <button onclick="colorChange('green')" class="bg-white rounded text-sm p-1 mt-2 hover:bg-green-900 hover:text-white"><i class="fa fa-file-text-o" aria-hidden="true"></i>Green</button>
+                        </div>
+                    </div>
+
+                </div>
+                <!-----Image section----->
+                <div id="mdev" class=" w-[90%] rounded mx-auto p-5 my-3 relative shadow-inner mt-10" hidden>
+                    <div class="w-[95%] flex justify-between absolute top-[-9px]">
+                        <p class="text-sm bg-white rounded">Poster Image</p>
+                        <p onclick="hideImg()" class="text-sm rounded cursor-pointer text-red-600">X</p>
+                    </div>
+
+                    <div class="input-div w-[100%] mx-auto grid place-content-center bg-white rounded p-[2rem] border-dashed border-2 border-sky-500" draggable="true">
+                        <label class="grid justify-center" for="input-file">
+                   
+                                <input  
+                                    id="input-file" 
+                                    type="file" 
+                                    multiple 
+                                    accept="image/jpeg, image/png, image/jpg" 
+                                    onChange="dragNdrop(event)"
+                                    ondragover="drag()"
+                                    ondrop="drop()" 
+                                    hidden
+                                >
+                                <span class="flex justify-center"><i class="fa-solid fa-cloud-arrow-up"></i></span>
+                                <p class="text-sm text-center"><strong>Click to upload</strong> or drap and drop</p>
+                                <p class="text-sm text-center">SYG, PNG,JPG or GIF (MAX 800 X 400PX) </p>
+
+                        </label> 
+                    </div>
+
+                </div>
+                <!-----Description section----->
+                <div id="desdev" class=" w-[90%] rounded mx-auto p-5 my-3 relative shadow-inner mt-10 p-3" hidden>
+                    <div class="w-[95%] flex justify-between absolute top-[-9px]">
+                        <p class="text-sm bg-white rounded">Description</p>
+                        <p onclick="hideDes()" class="text-sm rounded cursor-pointer text-red-600">X</p>
+                    </div>
+                    <textarea id="descrip" oninput="description()" class="w-[100%] p-[1rem]" onkeypress="mySpinn()"></textarea>
+
+                    <div id="spinn" role="status" class="absolute bottom-[25px] w-[94%]" hidden>
+                        <svg aria-hidden="true" class="inline w-4 h-4 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600 float-right" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+                            <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+                        </svg>
+                        <span class="sr-only">Loading...</span>
+                    </div>
+
+                </div>
+
+                <div id="item" class="text-center mt-10">
+                    <h5 class="font-bold">Items</h5>
+                </div>
+
+                <div class="flex justify-center gap-x-1 w-[90%] mx-auto">
+                    <button onclick="myHeadBtn()" id="hbtn" class="bg-yellow-100 hover:bg-yellow-200 text-yellow-400 py-1 px-10 rounded text-sm w-[100%]">Heading</button>
+                    <button onclick="myImgBtn()"  id="mbtn" class="bg-green-100 hover:bg-green-200 text-green-400 py-1 px-10 rounded text-sm w-[100%]">Image</button>
+                    <button onclick="myDesBtn()"  id="Desbtn" class="bg-blue-100 hover:bg-blue-200 text-blue-400 py-1 px-10 rounded text-sm w-[100%]">Description</button>
+                </div>
+            </div>
+            
+
+           <!--Output Section-->
+            <div class="w-11/12  border border-emerald-700 rounded h-5/6 mt-2 relative">  
+
+                <div class=" w-[100%] grid justify-items-center  absolute top-[-10px]"> 
+                    <div class=" w-[93%] bg-white rounded w-[90%] h-8 text-center">
+                        <span><i class="fa fa-file-text-o" aria-hidden="true"></i></span>
+                        <span>Preview</span> 
+                    </div>
+                </div>
+
+                <div class="mt-20 w-[100%] grid justify-items-center">
+                    <h1 class="w-[93%] font-bold text-[40px]" id="head"></h1>
+                </div>
+
+                <div class="pt-2 w-[100%] grid justify-items-center">
+                    <img class="w-[93%]" id="img-view">
+                </div>
+
+                <div class="w-[100%] grid justify-items-center mt-1">
+                    <p id="dtext" class="w-[93%]"></p>
+                </div>
+
+                <div class="w-[90%] absolute bottom-[0] p-2">
+                    <a id="downtag" class="text-xs cursor-pointer pl-2">Download</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Script Link -->
+        <script src="app.js"></script>
+    </body>
+</html>
